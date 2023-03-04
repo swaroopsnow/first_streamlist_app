@@ -24,8 +24,6 @@ streamlit.dataframe(fruits_to_show)
 
 streamlit.header("Fruityvice Fruit Advice!")
 
-streamlit.text("Hi before import")
 import requests
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-streamlit.text("Hi after request call")
 streamlit.text(fruityvice_response.json())
