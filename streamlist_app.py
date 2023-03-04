@@ -12,7 +12,7 @@ streamlit.text('🐔Hard boiled free range eggs')
 streamlit.text('🥑🍞 Avacado Toast')
 streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
    
-#import pandas
+#import pandas # commented this after all the import statements are organized at the beggining 
 my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
 my_fruit_list = my_fruit_list.set_index('Fruit')
 
@@ -32,23 +32,19 @@ try:
    if not fruit_choice:
       streamlit.write('The user entered ', fruit_choice)
    else:
-      #import requests
+      #import requests # commented this after all the import statements are organized at the beggining 
       fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
-      # streamlit.text(fruityvice_response.json()) -- commented it for now.
+      # streamlit.text(fruityvice_response.json()) # commented it for now.
+      fruityvice_normalized = pandas.json_normalize(fruityvice_response.json()) # Take the json version of the response and normalize it 
+      streamlit.dataframe(fruityvice_normalized)  # output it on to the screen as a table format
 
-      # Take the json version of the response and normalize it 
-      fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-
-      except URLError as e:
-      streamlit.error()
-      
-# output it on to the screen as a table format
-streamlit.dataframe(fruityvice_normalized)
+except URLError as e:
+   streamlit.error()
 
 # don't run anything past here while we troubleshoot
 streamlit.stop()
 
-#import snowflake.connector
+#import snowflake.connector # commented this after all the import statements are organized at the beggining 
 
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
