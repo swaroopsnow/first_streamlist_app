@@ -2,7 +2,7 @@ import streamlit
 import pnadas
 import requests
 import snowfalke.connect
-import urllib.error import URLError
+from urllib.error import URLError
 
 streamlit.title('My Parents New Healthy Diner')
 streamlit.header('Breakfast Menu \n')
