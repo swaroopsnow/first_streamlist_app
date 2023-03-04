@@ -52,5 +52,5 @@ fruit_to_add = streamlit.text_input('What fruit would you like add?','Jackfruit'
 streamlit.write('Thanks for adding ', fruit_to_add)
 
 # This will not work correctly but just go with it for now
-mycur.execute("insert into pc_rivery_db.public.fruit_load_list values ('from streamlit')")
+my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values ('from streamlit')")
 
