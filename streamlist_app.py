@@ -28,4 +28,4 @@ streamlit.text("Hi before import")
 import requests
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
 streamlit.text("Hi after request call")
-streamlit.text(fruityvice_response)
+streamlit.text(fruityvice_response.json())
